@@ -1,0 +1,25 @@
+body {
+    margin: 40px auto;
+    max-width: 1200px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444;
+    padding: 0 10px;
+    background-color: lightblue;
+}
+
+video {
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    background: #222;
+    margin: 0 0 20px 0;
+    --width: 45%;
+    width: var(--width);
+    height: calc(var(--width) * 0.85);
+}
+
+div#container, div#box {
+  margin: 0 auto 0 auto;
+  max-width: 60em;
+  padding: 1em 1.5em 1.3em 1.5em;
+}
