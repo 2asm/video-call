@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Console</title>
+        <title>Meeting Room</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="/static/style.css" rel="stylesheet">
     </head>
     <body>
         <div id="container">
-            <video id="localVideo" playsinline autoplay muted></video>
-            <video id="remoteVideo" playsinline autoplay></video>
+            <video id="localVideo" autoplay muted controls></video>
         </div>
 
         <div id="box">
-            <button id="callButton">Call</button>
-            <button id="hangupButton">Hang Up</button>
+            <button id="leaveButton" style="color:red;">Leave</button>
         </div>
         <script src="/static/main.js"></script>
     </body>

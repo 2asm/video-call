@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Video Call</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="/static/style.css" rel="stylesheet"> -->
+        <style>
+            body {
+                margin: 40px auto;
+                max-width: 650px;
+                line-height: 1.6;
+                font-size: 18px;
+                color: #444;
+                padding: 0 10px;
+            }
+
+            h1, h2, h3 {
+                line-height: 1.2;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Video Call</h1>
+        <button id="newMeeting">New Meeting</button>
+        <input id="inputCode" type="text" placeholder="Enter meeting Code or Link"></input>
+        <button id="joinMeeting">Join</button>
+
+        <script>
+            let meetingButton = document.querySelector("button#newMeeting")
+            meetingButton.onclick = () => {
+                let code = crypto.randomUUID();
+                lnk = document.location+code;
+                alert(`Share link:\n${lnk}`);
+                createMeeting(lnk);
+            };
+            let inputField = document.querySelector("input#inputCode")
+            let joinButton = document.querySelector("button#joinMeeting")
+            joinButton.disabled = true;
+            inputField.oninput = (e) => {
+                let code = inputField.value.trim();
+                console.log(code, code.length);
+                joinButton.disabled = code.length===0;
+            }
+            inputField.onkeypress = (e) => {
+                let code = inputField.value.trim();
+                let lnk = code;
+                try {
+                    let url = new URL(code);
+                } catch (_) { 
+                    lnk = document.location+code;
+                }
+                if (e.key == "Enter") {
+                    createMeeting(lnk);
+                }
+            }
+            joinButton.onclick = (e) => {
+                let code = inputField.value.trim();
+                let lnk = code;
+                try {
+                    let url = new URL(code);
+                } catch (_) { 
+                    lnk = document.location+code;
+                }
+                createMeeting(lnk);
+            }
+            function createMeeting(lnk) {
+                document.location = lnk;
+            }
+        </script>
+    </body>
+</html>
