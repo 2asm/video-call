@@ -9,7 +9,6 @@ const offerOptions = {
     offerToReceiveVideo: 1
 };
 
-// TODO low resolution
 const videoOptions = {
     video: true,
     audio: true
@@ -151,8 +150,8 @@ wconn.onmessage = async (e) => {
 wconn.onclose = () => {
     try {
         wconn = new WebSocket(websocket_addr);
-    } catch (e) { 
-        console.log(e) 
+    } catch (e) {
+        console.log(e)
     }
 }
 
@@ -162,7 +161,7 @@ async function getMedia() {
         localVideo.srcObject = localStream;
     } catch (e) {
         alert(`getUserMedia() error: ${e.name}`);
-        return
+        leave();
     }
 }
 

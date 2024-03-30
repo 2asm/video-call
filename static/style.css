@@ -1,23 +1,31 @@
 body {
     margin: 40px auto;
-    max-width: 1200px;
+    max-width: 900px;
     line-height: 1.6;
     font-size: 18px;
     color: #444;
     padding: 0 10px;
 }
 
-video {
+video{
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     background: #222;
-    margin: 10px;
-    width: 200px;
-    height: 150px;
-    /* 
-    ----width: 45%;
-    width: var(--width);
-    height: calc(var(--width) * 0.8);
-    */
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 250px;
+    max-height: 250px;
+    flex: 0 1 auto;
+    align-self: center;
+}
+
+#container{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content:center;
+    align-content:center;
+    align-items:center;
+    border: 1px dotted blue;
+    max-width: 750px;
 }
 
